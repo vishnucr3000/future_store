@@ -1,0 +1,29 @@
+{%extends 'layout.html'%}
+{%block body_block%}
+
+<div class="row">
+
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-number">{{category.category_name}}</span>
+                <span class="info-box-text">
+                  {% if category.is_active == True %}
+                  Active
+                  {%else%}
+                  Inactive
+                  {%endif%}
+                </span>
+
+            </div>
+            <a href="{%url 'list_categories'%}">Back</a>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+{%endblock%}

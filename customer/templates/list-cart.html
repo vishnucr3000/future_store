@@ -1,0 +1,60 @@
+{%extends 'index.html'%}
+{%block body_block%}
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-text-width"></i>
+                    Cart List
+                </h3>
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                        <th>qty</th>
+                        <th>Action</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {%for cart in carts%}
+                    <tr>
+                        <td><img src="{{cart.product.product_image.url}}" alt="No Image" height="50px" width="50px"></td>
+                        <td>{{cart.product.product_name}} </td>
+                        <td>{{cart.status}} </td>
+                        <td>{{cart.product.price}} </td>
+                        <td>{{cart.qty}} </td>
+                        <td>
+                            {% if cart.status != 'cancelled' and cart.status != 'order_placed' %}
+                            <a type="submit" href="{%url 'checkout' cart.id cart.product.id%}" class="btn btn-primary">Check Out</a>
+<!--                            <button type="submit" >Check Out</button>-->
+
+                            <a href="{%url 'remove-cart' cart.id%}" class="btn btn-danger">Remove</a>
+                            {%elif cart.status == 'order_placed'%}
+                            <a href="" class="btn btn-info">Go To Orders</a>
+                              {%endif%}
+                        </td>
+
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+{%endblock%}

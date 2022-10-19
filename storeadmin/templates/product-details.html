@@ -1,0 +1,43 @@
+{%extends 'layout.html'%}
+{%block body_block%}
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+
+        <div class="card card-widget widget-user-2" style="padding:5px">
+
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="d-flex flex-row-reverse">
+                <a href="{%url 'list-products'%}">Back</a>
+            </div>
+            <div class="widget-user-header bg-warning">
+                <div class="widget-user-image">
+                    <img class="img-fluid" src="{{product.product_image.url}}" alt="User Avatar">
+                </div>
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">{{product.product_name}}</h3>
+                <h5 class="widget-user-desc">{{product.category}}</h5>
+            </div>
+            <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Price <span class="float-right badge bg-primary">{{product.price}}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Description <span class="float-right badge bg-info">{{product.description}}</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-4"></div>
+
+
+    {%endblock%}

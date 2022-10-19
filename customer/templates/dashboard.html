@@ -1,0 +1,55 @@
+{%extends 'index.html'%}
+{%block body_block%}
+<section class="shop_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Latest Products
+                </h2>
+            </div>
+            <div class="row">
+                {%for product in products%}
+                <div class="col-sm-6 col-xl-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{{product.product_image.url}}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  {{product.product_name}}
+                </h6>
+                <h6>
+                  Price:
+                  <span>
+                    {{product.price}}
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  {{product.category}}
+                </span>
+              </div>
+            </a>
+
+          </div>
+                    <div class="row">
+
+                    <div class="col-6">
+                        <a href="{%url 'add-cart' product.id%}"  class="btn" style="background-color:#f0d43a">More</a>
+                    </div>
+                        </div>
+
+
+        </div>
+                {%endfor%}
+            </div>
+            <div class="btn-box">
+<!--                <a href="">-->
+<!--                    View All-->
+<!--                </a>-->
+            </div>
+        </div>
+    </section>
+{%endblock%}

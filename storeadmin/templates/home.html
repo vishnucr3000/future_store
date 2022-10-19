@@ -1,0 +1,68 @@
+{%extends 'layout.html'%}
+{%block body_block%}
+<div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{category_count}}</h3>
+
+                <p>Categories</p>
+              </div>
+              <div class="icon">
+
+                <i class="bi bi-basket"></i>
+
+              </div>
+              <a href="{%url 'list_categories'%}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{product_count}}</h3>
+
+                <p>Products</p>
+              </div>
+              <div class="icon">
+                <i class="on ion-bag"></i>
+              </div>
+              <a href="{%url 'list-products'%}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{order_count}}</h3>
+
+                <p>Pending Orders</p>
+              </div>
+              <div class="icon">
+                <i class="bi bi-cart-check"></i>
+              </div>
+              <a href="{%url 'order-process'%}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{cancelled_order_count}}</h3>
+
+                <p>Cancelled Orders</p>
+              </div>
+              <div class="icon">
+                <i class="bi bi-cart-x"></i>
+              </div>
+              <a href="{%url 'cancelled-order' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+
+{%endblock%}

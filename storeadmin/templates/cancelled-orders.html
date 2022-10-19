@@ -1,0 +1,52 @@
+{%extends 'layout.html'%}
+{%block body_block%}
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-text-width"></i>
+                    Cancelled Orders
+                </h3>
+            </div>
+            <div class="card-body">
+                <form action="" method="post">
+                    {%csrf_token%}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Order Status</th>
+                        <th>Order Date</th>
+
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {%for order in orders%}
+                    <tr>
+                        <td><img src="{{order.product.product_image.url}}" alt="No Image" height="50px" width="50px"></td>
+                        <td>{{order.product.product_name}} </td>
+                        <td>{{order.status}} </td>
+                        <td>{{order.order_date}} </td>
+
+
+
+
+
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+
+                    </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+{%endblock%}
